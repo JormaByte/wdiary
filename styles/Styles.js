@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     container: {
-        flex: 0.8,
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'space-evenly',
         margin: 10,
@@ -37,6 +37,10 @@ export default StyleSheet.create({
         margin: 10,
         padding: 10,
         backgroundColor: 'bisque'
+    },
+    radioStyle:{
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 });
   
