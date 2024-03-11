@@ -15,13 +15,14 @@ export default function AddWorkout() {
   const {setWorkout} = useContext(WorkoutContext)
   const [workoutType, setWorkoutType] = useState('')
   const [workoutTime, setWorkoutTime] = useState('')
+  const [workoutDistance, setWorkoutDistance] = useState('')
   const [date, setDate] = useState()
 
   
   const AddWorkout= () => {
 
     const date = new Date()
-    const newWorkout = {username, date, workoutType, workoutTime}
+    const newWorkout = {username, date, workoutType, workoutDistance, workoutTime}
 
     setWorkout((prev) => [...prev, newWorkout])
   }
@@ -48,11 +49,14 @@ export default function AddWorkout() {
         />  
 
       <TextInput 
-      style={styles.textInput}
-      placeholder='What was the distance? (in '/>
+        style={styles.textInput}
+        placeholder='What was the distance? (in km)'
+        onChangeText={setWorkoutDistance}
+        value={workoutDistance}
+        />
 
-      <Text style={styles.stats}>Your workout stats: {workoutTime} | {workoutType} | {date ? date.dateString : 'Select date'}</Text>
-      <Button title={'Submit your workout'} onPress={AddWorkout} //onPress={setWorkout}
+      <Text style={styles.stats}>Your workout stats: {workoutTime} | {workoutType} | {workoutDistance} | {date ? date.dateString : 'Select date'}</Text>
+      <Button title={'Submit your workout'} onPress={AddWorkout}
       />    
     </View>
   );

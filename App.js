@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import List from './components/List';
 import AddWorkout from './components/AddWorkout';
 import Settings from './components/Settings';
-import { UserContext, WorkoutContext } from './components/Context';
+import { UserContext, WorkoutContext, UnitContext } from './components/Context';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { PaperProvider, Icon } from 'react-native-paper';
 import { useState } from 'react';
@@ -20,15 +20,18 @@ export default function App() {
   
   const [username, setUsername] = useState('')
   const [workout, setWorkout] = useState([])
+  const [unit, setUnit] = useState('')
 
   return (
     <UserContext.Provider value={{username, setUsername}}>
       <WorkoutContext.Provider value={{ workout, setWorkout}}>
+        <UnitContext.Provider value={{ unit, setUnit}}>
         <PaperProvider>
           <SafeAreaProvider>
             <Navigation />
           </SafeAreaProvider>
         </PaperProvider>
+        </UnitContext.Provider>
       </WorkoutContext.Provider>
     </UserContext.Provider>
   );

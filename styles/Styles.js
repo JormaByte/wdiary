@@ -8,12 +8,24 @@ export default StyleSheet.create({
         margin: 10,
         border: 3
     },
+    settings: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    settingsInput: {
+        margin: 17,
+        width: '85%',
+        padding: 5
+
+    },
+
     textInput:{
         margin: 6,
-        padding: 10,
+        padding: 14,
         width: '85 %',
         fontSize: 16,
-        borderWidth: 2,
+        borderWidth: 3,
         borderRadius: 90,
         borderColor: 'pink'
     
@@ -21,7 +33,8 @@ export default StyleSheet.create({
     },
     label:{
         fontSize: 18,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        margin: 10
     },
     
     image:{

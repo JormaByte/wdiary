@@ -2,14 +2,16 @@ import { Text, View, Alert, Button } from 'react-native';
 import Styles from '../styles/Styles'
 import { RadioButton, TextInput } from 'react-native-paper'
 import { useContext, useState } from 'react';
-import { UserContext } from './Context';
+import { UserContext, UnitContext } from './Context';
+
 
 export default function Settings() {
 
-  const [radioval, setRadioval] = useState('Km')
+  const [radioval, setRadioval] = useState()
   const [name, setName] = useState('')
   const {username, setUsername} = useContext(UserContext)
-  
+  const {unit, setUnit} = useContext(UnitContext)
+
   let header = username === '' ? 'Set User' : 'Welcome' + username
 
   const changeUser = () => {
@@ -20,13 +22,22 @@ export default function Settings() {
 
   }
 
+  const changeUnit = () => {
+
+    setUnit(radioval)
+    let info = unit === '' ? 'You must choose a unit!' : 'Unit changed to ' + unit
+    Alert.alert(info)
+    setUnit('')
+
+  }
+
   return (
-    <View>
+    <View style={Styles.settings}>
       <Text variant="headlineLarge" style={Styles.header}>{header}</Text>
-      <TextInput  label={'Name'} value={name} onChangeText={setName}/>
-      <Button title='change User' mode="contained" onPress={changeUser}>Change user</Button>
+      <TextInput style={Styles.settingsInput} label={'Name'} value={name} onChangeText={setName}/>
+      <Button title='change User' onPress={changeUser}>Change user</Button>
       
-      <Text>Choose your unit of measurement:</Text>
+      <Text style={Styles.label}>Choose your unit of measurement:</Text>
       <RadioButton.Group onValueChange={newValue => setRadioval(newValue)} value={radioval}>
         <View style={Styles.radioStyle}>
           <RadioButton value='Km' />
@@ -37,6 +48,7 @@ export default function Settings() {
           <Text>Miles</Text>
         </View>
       </RadioButton.Group>
+      <Button title='change unit' onPress={changeUnit}>Change Unit</Button>
     </View>
   );
 }
