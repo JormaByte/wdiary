@@ -8,13 +8,15 @@ import Styles from '../styles/Styles'
 
 export default function List() {
 
-  const {workouts} = useContext(WorkoutContext)
+  const {workout} = useContext(WorkoutContext)
+  console.log(workout)
 
   return (
     <View>
       <FlatList
-        data={workouts}
-        renderItem={({item}) => <Item workout={item} />} />
+        data={workout}
+        renderItem={({item}) => <Item workout={item} />} 
+        keyExtractor={(item) => item.date.toString()}/>
     </View>
   );
 }
@@ -23,7 +25,7 @@ function Item({workout}) {
 
   return(
     <View>
-      <Text>{workout.workout}</Text>
+      <Text>{`Username: ${workout.username}, Type: ${workout.workoutType}, Time: ${workout.workoutTime}, Date: ${workout.date}`}</Text>
     </View>
   )
 }

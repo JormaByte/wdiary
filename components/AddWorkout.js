@@ -7,20 +7,20 @@ import styles from '../styles/Styles';
 import { WorkoutContext } from './Context';
 import { UserContext } from './Context';
 
-const workoutTypes = [
+/* const workoutTypes = [
   {type: 'Running'},
   {type: 'Walking'},
   {type: 'Swimming'},
   {type: 'Tennis'},
   {type: 'Cycling'}
-]
+] */
 
 
 export default function AddWorkout() {
 
   const {username} = useContext(UserContext)
   const {setWorkout} = useContext(WorkoutContext)
-  const [workoutType, setWorkoutType] = useState([0])
+  const [workoutType, setWorkoutType] = useState('')
   const [workoutTime, setWorkoutTime] = useState(0)
   const [date, setDate] = useState()
   //const [workout, setWorkout] = useState=([])
@@ -28,8 +28,10 @@ export default function AddWorkout() {
   const AddWorkout= () => {
 
     const date = new Date()
+    const newWorkout = {username, date, workoutType, workoutTime}
 
-    setWorkout( prev => [...prev, {username, date, workoutType, workoutTime}])
+    setWorkout((prev) => [...prev, newWorkout])
+    console.log(newWorkout)
   }
 
   return (
@@ -37,7 +39,7 @@ export default function AddWorkout() {
 
 
       <Calendar
-        onDayPress={setDate}/>
+        onDayPress={(day) => setDate(day)}/>
    
       
 
@@ -50,11 +52,18 @@ export default function AddWorkout() {
       />
 
         <Text> What did you do?</Text>
-       <SelectDropdown 
+          <TextInput
+          style={styles.textInput}
+          placeholder='What did you do?'
+
+          onChangeText={setWorkoutType}
+          value={workoutType}
+        />  
+{/*        <SelectDropdown 
        style={styles.dropDown}
         data={workoutTypes. map(workout => workout.type)}
         onSelect={setWorkoutType}
-      />
+      /> */ }
 
 
       <Text style={styles.stats}>Your workout stats: {workoutTime} | {workoutType} | {date ? date.dateString : 'Select date'}</Text>
