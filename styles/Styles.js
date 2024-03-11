@@ -2,17 +2,25 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     contentContainer: {
-        flex: 0.8,
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'space-evenly',
         margin: 10,
-        padding: 30
+        padding: 30,
+        backgroundColor: 'green'
 
+    },
+    container: {
+        flex: 1,
+        backgroundColor: 'green',
+        alignItems: 'center',
+       
     },
     settings: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'green'
     },
     settingsInput: {
         margin: 17,
@@ -20,23 +28,30 @@ export default StyleSheet.create({
         padding: 5
 
     },
-
+    title: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        color: 'pink'
+    },
     textInput:{
         margin: 6,
         padding: 14,
         width: '97 %',
         fontSize: 16,
-        borderWidth: 3,
-        borderRadius: 15,
-        borderColor: 'turquoise',
-        backgroundColor: 'pink'
-    
-
+        borderBottomWidth: 3,
+        borderBottomColor: 'pink',
+    },
+    calendar: {
+        backgroundColor: 'pink',
+        marginBottom: 5
     },
     label:{
         fontSize: 18,
         fontWeight: "bold",
-        margin: 10
+        margin: 10,
+        color: 'pink',
+        borderBottomWidth: 3,
+        borderBottomColor: 'pink'
     },
     
     image:{
@@ -56,7 +71,8 @@ export default StyleSheet.create({
     },
     radioStyle:{
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        color: 'pink'
     }
 });
   

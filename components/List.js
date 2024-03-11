@@ -1,5 +1,5 @@
 import { View, FlatList } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text, Icon } from 'react-native-paper';
 import { UnitContext, WorkoutContext } from './Context';
 import { useContext } from 'react';
 import Styles from '../styles/Styles'
@@ -11,7 +11,7 @@ export default function List() {
   /* const {unit} = useContext(UnitContext) */
 
   return (
-    <View>
+    <View style={Styles.container}>
       <FlatList
         data={workout}
         renderItem={({item}) => <Item workout={item} />} 
@@ -23,8 +23,8 @@ export default function List() {
 function Item({workout}) {
 
   return(
-    <View>
-      <Text style={Styles.stats}>{`${workout.date}: ${workout.username}'s workout (${workout.workoutType} for ${workout.workoutDistance} km) lasted for ${workout.workoutTime} minutes.`}</Text>
+    <View style={Styles.container}>
+      <Text style={Styles.stats}> <Icon source='fruit-watermelon' size={20}/> {` ${workout.date} Workout by ${workout.username} (${workout.workoutType} for ${workout.workoutDistance} km) lasted for ${workout.workoutTime} minutes.`}</Text>
     </View>
   )
 }

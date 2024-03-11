@@ -5,6 +5,7 @@ import { Calendar } from 'react-native-calendars';
 import styles from '../styles/Styles';
 import { WorkoutContext } from './Context';
 import { UserContext } from './Context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 export default function AddWorkout() {
@@ -27,9 +28,11 @@ export default function AddWorkout() {
   }
 
   return (
+    <SafeAreaView style={styles.container}>
     <ScrollView contentContainerStyles={styles.contentContainer}>
      {/*  <Text variant="headlineLarge">{header}</Text> */}
       <Calendar
+        style={styles.calendar}
         onDayPress={(day) => setDate(day)}/>
 
       <Text style={styles.label}> {date ? date.dateString : 'Select date from the calendar above'}</Text>
@@ -37,6 +40,7 @@ export default function AddWorkout() {
       <TextInput
         style={styles.textInput}
         placeholder='How long was your workout? (in minutes)'
+        placeholderTextColor='pink'
         keyboardType='number-pad'
         onChangeText={setWorkoutTime}
         value={workoutTime}
@@ -45,6 +49,7 @@ export default function AddWorkout() {
       <TextInput
         style={styles.textInput}
         placeholder='What did you do?'
+        placeholderTextColor='pink'
         onChangeText={setWorkoutType}
         value={workoutType}
         />  
@@ -52,6 +57,7 @@ export default function AddWorkout() {
       <TextInput 
         style={styles.textInput}
         placeholder='What was the distance? (in km)'
+        placeholderTextColor='pink'
         onChangeText={setWorkoutDistance}
         value={workoutDistance}
         />
@@ -60,6 +66,7 @@ export default function AddWorkout() {
       <Button title={'Submit your workout'} onPress={AddWorkout}
       />    
     </ScrollView>
+    </SafeAreaView>
   );
 }
 

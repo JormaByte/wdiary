@@ -1,6 +1,6 @@
 import { Text, View, Alert, Button } from 'react-native';
 import Styles from '../styles/Styles'
-import { RadioButton, TextInput } from 'react-native-paper'
+import { RadioButton, TextInput, Icon } from 'react-native-paper'
 import { useContext, useState } from 'react';
 import { UserContext, UnitContext } from './Context';
 
@@ -11,7 +11,6 @@ export default function Settings() {
   const [name, setName] = useState('')
   const {username, setUsername} = useContext(UserContext)
   const {unit, setUnit} = useContext(UnitContext)
-
 
 
   const changeUser = () => {
@@ -33,6 +32,8 @@ export default function Settings() {
 
   return (
     <View style={Styles.settings}>
+      <Icon source='fruit-watermelon' size={80} color='red'/>
+      <Text style={Styles.title}>Welcome to the Watermelon Workout Diary!</Text>
       <TextInput style={Styles.settingsInput} label={'Name'} value={name} onChangeText={setName}/>
       <Button title='change User' onPress={changeUser}>Change user</Button>
       
