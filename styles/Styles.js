@@ -33,7 +33,6 @@ export default StyleSheet.create({
     stats:{
         fontSize: 18,
         borderWidth: 2,
-        borderRadius: 90,
         margin: 10,
         padding: 10,
         backgroundColor: 'bisque'

@@ -7,8 +7,10 @@ import AddWorkout from './components/AddWorkout';
 import Settings from './components/Settings';
 import { UserContext, WorkoutContext } from './components/Context';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { PaperProvider } from 'react-native-paper';
+import { PaperProvider, Icon } from 'react-native-paper';
 import { useState } from 'react';
+
+
 
 const Tab = createBottomTabNavigator()
 
@@ -36,9 +38,9 @@ function Navigation() {
   return(
     <NavigationContainer>
     <Tab.Navigator>
-      <Tab.Screen name='List' component={List}/>
-      <Tab.Screen name='Add Workout' component={AddWorkout}/>
-      <Tab.Screen name='Settings' component={Settings}/>
+      <Tab.Screen name='Settings' options={{tabBarIcon: () => <Icon source='account-circle' size={24} />}} component={Settings}/>
+      <Tab.Screen name='Add Workout' options={{tabBarIcon: () => <Icon source='dumbbell' size={24} />}} component={AddWorkout}/>
+      <Tab.Screen name='List' options={{tabBarIcon: () => <Icon source='format-list-bulleted' size={24} />}} component={List}/>
     </Tab.Navigator>
   </NavigationContainer>
   )

@@ -7,13 +7,6 @@ import styles from '../styles/Styles';
 import { WorkoutContext } from './Context';
 import { UserContext } from './Context';
 
-/* const workoutTypes = [
-  {type: 'Running'},
-  {type: 'Walking'},
-  {type: 'Swimming'},
-  {type: 'Tennis'},
-  {type: 'Cycling'}
-] */
 
 
 export default function AddWorkout() {
@@ -21,9 +14,9 @@ export default function AddWorkout() {
   const {username} = useContext(UserContext)
   const {setWorkout} = useContext(WorkoutContext)
   const [workoutType, setWorkoutType] = useState('')
-  const [workoutTime, setWorkoutTime] = useState(0)
+  const [workoutTime, setWorkoutTime] = useState('')
   const [date, setDate] = useState()
-  //const [workout, setWorkout] = useState=([])
+
   
   const AddWorkout= () => {
 
@@ -31,18 +24,14 @@ export default function AddWorkout() {
     const newWorkout = {username, date, workoutType, workoutTime}
 
     setWorkout((prev) => [...prev, newWorkout])
-    console.log(newWorkout)
   }
 
   return (
     <View style={styles.container}>
-
-
+      <Text>Select date:</Text>
       <Calendar
         onDayPress={(day) => setDate(day)}/>
    
-      
-
       <TextInput
         style={styles.textInput}
         placeholder='How long was your workout? (in minutes)'
@@ -51,27 +40,20 @@ export default function AddWorkout() {
         value={workoutTime}
       />
 
-        <Text> What did you do?</Text>
-          <TextInput
-          style={styles.textInput}
-          placeholder='What did you do?'
-
-          onChangeText={setWorkoutType}
-          value={workoutType}
+      <TextInput
+        style={styles.textInput}
+        placeholder='What did you do?'
+        onChangeText={setWorkoutType}
+        value={workoutType}
         />  
-{/*        <SelectDropdown 
-       style={styles.dropDown}
-        data={workoutTypes. map(workout => workout.type)}
-        onSelect={setWorkoutType}
-      /> */ }
 
+      <TextInput 
+      style={styles.textInput}
+      placeholder='What was the distance? (in '/>
 
       <Text style={styles.stats}>Your workout stats: {workoutTime} | {workoutType} | {date ? date.dateString : 'Select date'}</Text>
-
-      
       <Button title={'Submit your workout'} onPress={AddWorkout} //onPress={setWorkout}
-      />
-       
+      />    
     </View>
   );
 }
