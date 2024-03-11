@@ -1,12 +1,13 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-    container: {
-        flex: 1,
+    contentContainer: {
+        flex: 0.8,
         alignItems: 'center',
         justifyContent: 'space-evenly',
         margin: 10,
-        border: 3
+        padding: 30
+
     },
     settings: {
         flex: 1,
@@ -23,11 +24,12 @@ export default StyleSheet.create({
     textInput:{
         margin: 6,
         padding: 14,
-        width: '85 %',
+        width: '97 %',
         fontSize: 16,
         borderWidth: 3,
-        borderRadius: 90,
-        borderColor: 'pink'
+        borderRadius: 15,
+        borderColor: 'turquoise',
+        backgroundColor: 'pink'
     
 
     },
@@ -45,10 +47,12 @@ export default StyleSheet.create({
     },
     stats:{
         fontSize: 18,
-        borderWidth: 2,
+        borderWidth: 5,
+        borderRadius: 10,
         margin: 10,
-        padding: 10,
-        backgroundColor: 'bisque'
+        padding: 15,
+        backgroundColor: 'pink',
+        borderColor: 'turquoise'
     },
     radioStyle:{
         flexDirection: 'row',

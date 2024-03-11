@@ -7,12 +7,12 @@ import { UserContext, UnitContext } from './Context';
 
 export default function Settings() {
 
-  const [radioval, setRadioval] = useState()
+  const [radioval, setRadioval] = useState('Km')
   const [name, setName] = useState('')
   const {username, setUsername} = useContext(UserContext)
   const {unit, setUnit} = useContext(UnitContext)
 
-  let header = username === '' ? 'Set User' : 'Welcome' + username
+
 
   const changeUser = () => {
     setUsername(name)
@@ -33,7 +33,6 @@ export default function Settings() {
 
   return (
     <View style={Styles.settings}>
-      <Text variant="headlineLarge" style={Styles.header}>{header}</Text>
       <TextInput style={Styles.settingsInput} label={'Name'} value={name} onChangeText={setName}/>
       <Button title='change User' onPress={changeUser}>Change user</Button>
       

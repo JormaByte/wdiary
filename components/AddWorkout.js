@@ -1,12 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Button, TextInput } from 'react-native';
+import { Text, View, Button, TextInput, ScrollView } from 'react-native';
 import { useContext, useState } from 'react';
 import { Calendar } from 'react-native-calendars';
-import SelectDropdown from 'react-native-select-dropdown';
 import styles from '../styles/Styles';
 import { WorkoutContext } from './Context';
 import { UserContext } from './Context';
-
 
 
 export default function AddWorkout() {
@@ -18,7 +16,8 @@ export default function AddWorkout() {
   const [workoutDistance, setWorkoutDistance] = useState('')
   const [date, setDate] = useState()
 
-  
+  /* let header = username === '' ? 'Set User' : 'Welcome' + username */
+
   const AddWorkout= () => {
 
     const date = new Date()
@@ -28,11 +27,13 @@ export default function AddWorkout() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text>Select date:</Text>
+    <ScrollView contentContainerStyles={styles.contentContainer}>
+     {/*  <Text variant="headlineLarge">{header}</Text> */}
       <Calendar
         onDayPress={(day) => setDate(day)}/>
-   
+
+      <Text style={styles.label}> {date ? date.dateString : 'Select date from the calendar above'}</Text>
+
       <TextInput
         style={styles.textInput}
         placeholder='How long was your workout? (in minutes)'
@@ -55,10 +56,10 @@ export default function AddWorkout() {
         value={workoutDistance}
         />
 
-      <Text style={styles.stats}>Your workout stats: {workoutTime} | {workoutType} | {workoutDistance} | {date ? date.dateString : 'Select date'}</Text>
+      
       <Button title={'Submit your workout'} onPress={AddWorkout}
       />    
-    </View>
+    </ScrollView>
   );
 }
 
