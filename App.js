@@ -41,9 +41,24 @@ function Navigation() {
   return(
     <NavigationContainer>
     <Tab.Navigator>
-      <Tab.Screen name='Settings' options={{tabBarIcon: () => <Icon source='account-circle' size={24} />}} component={Settings}/>
-      <Tab.Screen name='Add Workout' options={{tabBarIcon: () => <Icon source='dumbbell' size={24} />}} component={AddWorkout}/>
-      <Tab.Screen name='List' options={{tabBarIcon: () => <Icon source='format-list-bulleted' size={24} />}} component={List}/>
+      <Tab.Screen name='Settings' options={
+        { headerStyle: {backgroundColor: 'crimson'}, 
+        headerTintColor: 'white',
+        tabBarIcon: () => <Icon source='account-circle' size={24} />}} 
+        component={Settings}
+        />
+      <Tab.Screen name='Add Workout' options={
+        { headerStyle: {backgroundColor: 'crimson'}, 
+        headerTintColor: 'white', 
+        tabBarIcon: () => <Icon source='dumbbell' size={24} />}} 
+        component={AddWorkout}
+        />
+      <Tab.Screen name='List' options={
+        { headerStyle: {backgroundColor: 'crimson'}, 
+        headerTintColor: 'white',
+        tabBarIcon: () => <Icon source='format-list-bulleted' size={24} />}} 
+        component={List}
+        />
     </Tab.Navigator>
   </NavigationContainer>
   )

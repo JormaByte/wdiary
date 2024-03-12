@@ -66,6 +66,12 @@ export default StyleSheet.create({
         borderBottomWidth: 3,
         borderBottomColor: 'pink'
     },
+    errorlabel: {
+        fontSize: 18,
+        fontWeight: "bold",
+        margin: 10,
+        color: 'orange'
+    },
     
     image:{
         marginTop: 5

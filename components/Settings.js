@@ -24,7 +24,8 @@ export default function Settings() {
   const changeUnit = () => {
 
     setUnit(radioval)
-    let info = unit === '' ? 'You must choose a unit!' : 'Unit changed to ' + unit
+    let info = `Unit selection is disabled at this time ${'\n'} - All distances will be listed in km.`
+    /* let info = unit === '' ? 'You must choose a unit!' : 'Unit changed to ' + unit */
     Alert.alert(info)
     setUnit('')
 

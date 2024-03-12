@@ -25,7 +25,7 @@ function Item({workout}) {
 
   return(
     <View style={Styles.container}>
-      <Text style={Styles.stats}> <Icon source='fruit-watermelon' size={20}/> {d} <Icon source='fruit-watermelon' size={20}/>{`   Workout by ${workout.username}:    (${workout.workoutType} for ${workout.workoutDistance} km) lasted for ${workout.workoutTime} minutes.`}</Text>
+      <Text style={Styles.stats}> <Icon source='fruit-watermelon' size={20}/> {d} <Icon source='fruit-watermelon' size={20}/>{` Workout by ${workout.username}:  ${'\n'}  (${workout.workoutType} for ${workout.workoutDistance} km) lasted for ${workout.workoutTime} min.`}</Text>
     </View>
   )
 }

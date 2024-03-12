@@ -40,7 +40,7 @@ export default function AddWorkout() {
       <TextInput
         style={styles.textInput}
         placeholder='How long was your workout? (in minutes)'
-        placeholderTextColor='hotpink'
+        placeholderTextColor='pink'
         keyboardType='number-pad'
         onChangeText={setWorkoutTime}
         value={workoutTime}
@@ -49,7 +49,7 @@ export default function AddWorkout() {
       <TextInput
         style={styles.textInput}
         placeholder='What did you do?'
-        placeholderTextColor='hotpink'
+        placeholderTextColor='pink'
         onChangeText={setWorkoutType}
         value={workoutType}
         />  
@@ -57,14 +57,17 @@ export default function AddWorkout() {
       <TextInput 
         style={styles.textInput}
         placeholder='What was the distance? (in km)'
-        placeholderTextColor='hotpink'
+        placeholderTextColor='pink'
+        keyboardType='number-pad'
         onChangeText={setWorkoutDistance}
         value={workoutDistance}
         />
 
-      
+      {username !== '' && workoutTime !== '' && workoutType !== '' && workoutDistance !== '' ?(
       <Button title={'Submit your workout'} onPress={AddWorkout}
-      />    
+      />) : (<Text style={styles.errorlabel}>Please provide your name and all the details of your workout before submitting!</Text>)}
+   
+   
     </ScrollView>
     </SafeAreaView>
   );
