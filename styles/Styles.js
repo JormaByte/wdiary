@@ -51,12 +51,14 @@ export default StyleSheet.create({
         marginBottom: 5
     },
     date: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: "bold",
         margin: 10,
+        padding: 12,
         color: 'white',
         borderBottomWidth: 3,
-        borderBottomColor: 'pink'
+        borderBottomColor: 'pink',
+        width: '40 %'
     },
     label:{
         fontSize: 18,
@@ -77,22 +79,53 @@ export default StyleSheet.create({
         marginTop: 5
     },
     dropDown: {
-       
+        alignItems: 'center',
+        justifyContent: 'center', 
     },
     stats:{
         fontSize: 18,
-        borderRadius: 10,
-        margin: 10,
-        padding: 15,
+        borderRadius: 8,
+        margin: 5,
+        padding: 10,
+        width: '100 %',
         backgroundColor: 'turquoise',
         borderBottomWidth: 3,
-        borderLeftWidth: 3,
+        borderTopWidth: 3,
         borderBottomColor: 'pink',
-        borderLeftColor: 'pink',
+        borderTopColor: 'pink',
     },
     radioStyle:{
         flexDirection: 'row',
         alignItems: 'center',
+        color: 'pink'
+    },
+    bar: {
+        flexDirection: 'row', 
+        alignItems: 'center' 
+    },
+    filterBar: {
+        flexDirection: 'row', 
+        alignItems: 'center',
+        padding: 10,
+        borderBottomWidth: 3,
+        borderRadius: 6,
+        backgroundColor: 'mediumaquamarine',
+        borderBottomColor: 'grey',
+   
+    },
+    option: {
+        margin: 5,
+        padding: 4,
+        borderBottomWidth: 3,
+        borderRadius: 6,
+        backgroundColor: 'mediumseagreen',
+        borderBottomColor: 'pink',
+        borderLeftWidth: 3,
+        borderLeftColor: 'pink',
+        color: 'red'
+    },
+    buttonStyle: {
+        fontWeight: 'bold',
         color: 'pink'
     }
 });

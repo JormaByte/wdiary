@@ -6,6 +6,7 @@ import styles from '../styles/Styles';
 import { WorkoutContext } from './Context';
 import { UserContext } from './Context';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import SelectDropdown from 'react-native-select-dropdown'
 
 
 export default function AddWorkout() {
@@ -16,8 +17,12 @@ export default function AddWorkout() {
   const [workoutTime, setWorkoutTime] = useState('')
   const [workoutDistance, setWorkoutDistance] = useState('')
   const [date, setDate] = useState()
-
-  /* let header = username === '' ? 'Set User' : 'Welcome' + username */
+  const workoutTypes = [
+    {type: 'Running'},
+    {type: 'Walking'},
+    {type: 'Swimming'},
+    {type: 'Cycling'}
+  ]
 
   const AddWorkout= () => {
 
@@ -25,6 +30,7 @@ export default function AddWorkout() {
     const newWorkout = {username, date, workoutType, workoutDistance, workoutTime}
 
     setWorkout((prev) => [...prev, newWorkout])
+
   }
 
   return (
@@ -35,7 +41,17 @@ export default function AddWorkout() {
         style={styles.calendar}
         onDayPress={(day) => setDate(day)}/>
 
-      <Text style={styles.date}> {date ? date.dateString : 'Select date from the calendar above'}</Text>
+ 
+      <View style={styles.bar}> 
+      <Text style={styles.date}> {date ? date.dateString : 'Date not selected'}</Text>
+        <SelectDropdown
+        
+        data={workoutTypes. map(workout => workout.type)}
+        onSelect={setWorkoutType}
+        place
+      />
+      </View>
+
 
       <TextInput
         style={styles.textInput}
@@ -45,14 +61,6 @@ export default function AddWorkout() {
         onChangeText={setWorkoutTime}
         value={workoutTime}
       />
-
-      <TextInput
-        style={styles.textInput}
-        placeholder='What did you do?'
-        placeholderTextColor='pink'
-        onChangeText={setWorkoutType}
-        value={workoutType}
-        />  
 
       <TextInput 
         style={styles.textInput}
@@ -66,8 +74,7 @@ export default function AddWorkout() {
       {username !== '' && workoutTime !== '' && workoutType !== '' && workoutDistance !== '' ?(
       <Button title={'Submit your workout'} onPress={AddWorkout}
       />) : (<Text style={styles.errorlabel}>Please provide your name and all the details of your workout before submitting!</Text>)}
-   
-   
+      
     </ScrollView>
     </SafeAreaView>
   );
