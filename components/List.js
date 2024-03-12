@@ -21,10 +21,11 @@ export default function List() {
 }
 
 function Item({workout}) {
+  let d = workout.date.getDate() + '.' + (workout.date.getMonth()+1) + '.' + workout.date.getFullYear()
 
   return(
     <View style={Styles.container}>
-      <Text style={Styles.stats}> <Icon source='fruit-watermelon' size={20}/> {` ${workout.date} Workout by ${workout.username} (${workout.workoutType} for ${workout.workoutDistance} km) lasted for ${workout.workoutTime} minutes.`}</Text>
+      <Text style={Styles.stats}> <Icon source='fruit-watermelon' size={20}/> {d} <Icon source='fruit-watermelon' size={20}/>{`   Workout by ${workout.username}:    (${workout.workoutType} for ${workout.workoutDistance} km) lasted for ${workout.workoutTime} minutes.`}</Text>
     </View>
   )
 }

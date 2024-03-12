@@ -35,12 +35,12 @@ export default function AddWorkout() {
         style={styles.calendar}
         onDayPress={(day) => setDate(day)}/>
 
-      <Text style={styles.label}> {date ? date.dateString : 'Select date from the calendar above'}</Text>
+      <Text style={styles.date}> {date ? date.dateString : 'Select date from the calendar above'}</Text>
 
       <TextInput
         style={styles.textInput}
         placeholder='How long was your workout? (in minutes)'
-        placeholderTextColor='pink'
+        placeholderTextColor='hotpink'
         keyboardType='number-pad'
         onChangeText={setWorkoutTime}
         value={workoutTime}
@@ -49,7 +49,7 @@ export default function AddWorkout() {
       <TextInput
         style={styles.textInput}
         placeholder='What did you do?'
-        placeholderTextColor='pink'
+        placeholderTextColor='hotpink'
         onChangeText={setWorkoutType}
         value={workoutType}
         />  
@@ -57,7 +57,7 @@ export default function AddWorkout() {
       <TextInput 
         style={styles.textInput}
         placeholder='What was the distance? (in km)'
-        placeholderTextColor='pink'
+        placeholderTextColor='hotpink'
         onChangeText={setWorkoutDistance}
         value={workoutDistance}
         />
